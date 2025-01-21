@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Components/Button';
 
@@ -13,7 +13,7 @@ function LandingPage(){
     navigate('/game/computer');
   }
 
-  return (
+  return ( 
     <div className="main flex flex-col items-center justify-center h-full bg-slate-400">
     <div className="landingPage flex h-5/6 w-5/6 bg-slate-700 shadow drop-shadow-2xl shadow-gray-900 hover:shadow-lg rounded-lg" style={{ backgroundColor: "#D9D9D9"}}>
        <div className="left w-3/6 h-full flex items-center justify-center border-black relative">
