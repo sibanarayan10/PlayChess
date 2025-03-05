@@ -22,13 +22,13 @@ export class Game {
         this.player1.send(JSON.stringify({
             type: "init_game",
             payload: {
-                color: "white"
+                color: "w"
             }
         }));
         this.player2.send(JSON.stringify({
             type: "init_game",
             payload: {
-                color: "black"
+                color: "b"
             }
         }));
 
@@ -38,9 +38,7 @@ export class Game {
         to: string
     }) {
         try {
-         
-         
-            if (this.moves%2 === 0 && socket !== this.player1) {
+         if (this.moves%2 === 0 && socket !== this.player1) {
                 console.log("early returns 1")
 
                 return;
@@ -50,9 +48,11 @@ export class Game {
                 return;
             }
           this.board.move(move);
+
           this.moves++;
           
-    } catch (e) {
+    } 
+    catch (e) {
             console.log("INVALID MOVE:",e);
         }
 
@@ -66,18 +66,22 @@ export class Game {
             return;
         }
         if (this.moves % 2 === 0) {
-            console.log("player1 is sending");
-            
             this.player1.send(JSON.stringify({
                 type: MOVE,
                 payload: {move}
 
             }))
-        } else {
-            console.log("player2 is sending");
+            this.player2.send(JSON.stringify({
+                move:{move}
+            }))
+        } 
+        else {
             this.player2.send(JSON.stringify({
                 type: MOVE,
                 payload: {move}
+            }))
+            this.player1.send(JSON.stringify({
+                move:{move}
             }))
         }
     }

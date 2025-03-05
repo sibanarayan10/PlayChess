@@ -1,0 +1,13 @@
+.text{
+    font-size: clamp(7px,2vw,16px);
+}
+.heading{
+    font-size:clamp(12px,7vw,36px);
+}
+.text-paragraph{
+    font-size: clamp(4px,2vw,16px);
+
+}
+.text-navbar{
+    font-size: clamp(14px,2vw,24px);
+}
