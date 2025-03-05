@@ -20,4 +20,3 @@ export const useSocket=():WebSocket|null=>{
     return socket;    
 }
 
-/**opopen and onclose are the events of the socket! */

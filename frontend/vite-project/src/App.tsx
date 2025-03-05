@@ -3,30 +3,26 @@ import './App.css'
 import Home from './Pages/LandingPage'
 import Game from './Pages/Game'
 import SignUp from './Components/SignUp'
-import Navbar from './Components/Navbar'
+import Head from './Pages/Head'
+import { useEffect, useState } from 'react'
+import { SocketContext, SocketProvider } from './Context/SocketContext.tsx'
 
 function App() {
-  
-
   return (
-    <>
-    <div className="app h-screen w-screen overflow-hidden ">
-    <BrowserRouter>
-    <Navbar/>
-
-       
-       
-        <Routes>
-
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/game" element={<Game/>}/>
-          <Route path='/sgn' element={<SignUp/>}/>
-
-        </Routes>
-    </BrowserRouter>
-    </div>
-    </>
-  )
+    
+      <BrowserRouter>
+        <div className="max-w-[1500px] mx-auto w-screen overflow-hidden bg-[url('./chessGame.webp')] bg-cover bg-no-repeat h-screen max-h-[1000px]">
+        <SocketProvider> 
+          <Routes>
+            <Route path='/head' element={<Head/>}/>
+            <Route path="/:action" element={<SignUp />} />
+          </Routes>
+          </SocketProvider>
+        </div>
+      </BrowserRouter>
+    
+  );
 }
+
 
 export default App
